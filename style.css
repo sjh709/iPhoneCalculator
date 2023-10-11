@@ -4,8 +4,7 @@
   padding: 0;
 }
 
-button,
-input {
+button {
   background-color: transparent;
   border: none;
 }
@@ -33,14 +32,13 @@ input {
 
 .output {
   grid-column: span 4;
-  font-size: 4rem;
   text-align: right;
   margin: 0 0.8rem;
-  color: #ffffff;
 }
 
-.output:focus {
-  outline: none;
+.output .font {
+  font-size: 3.8rem;
+  color: #ffffff;
 }
 
 .btn {
