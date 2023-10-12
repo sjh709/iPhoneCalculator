@@ -6,9 +6,9 @@ const output = document.querySelector(".output"),
   operators = document.querySelectorAll(".operator"),
   equal = document.querySelector(".equal");
 
-let value = ""; // String
-let num1, num2; // Number
-let op, result; // String
+let value = "";
+let num1, num2;
+let op, result;
 let haveDot = false;
 
 // 천단위마다 쉼표
@@ -29,11 +29,13 @@ numbers.forEach((num) => {
     if (value.length < 9) {
       value += e.target.innerText;
     }
-    text.innerText = setComma(value);
+    value.includes(".")
+      ? (text.innerText = value)
+      : (text.innerText = setComma(value));
   });
 });
 
-// 클릭 이벤트 (연산 기호 - +, -, x, ÷)
+// 클릭 이벤트 (-, +, -, x, ÷)
 operators.forEach((oper) => {
   oper.addEventListener("click", (e) => {
     num1 = Number(value);
@@ -87,7 +89,9 @@ options.forEach((option) => {
     if (target === "+/-") {
       result = getNumber(value);
       value = result === "" || result === "-" ? result + "0" : result;
-      text.innerText = setComma(value);
+      value.includes(".")
+        ? (text.innerText = value)
+        : (text.innerText = setComma(value));
     }
   });
 });
